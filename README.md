@@ -1,7 +1,9 @@
+Forked from [ktwe](https://github.com/ktwe/docker-bareos-storage)
+
 For more information visit the Github repositories:
-* [bareos-director](https://github.com/ktwe/docker-bareos-director)
-* [bareos-webui](https://github.com/ktwe/docker-bareos-webui)
-* [bareos-storage](https://github.com/ktwe/docker-bareos-storage)
+* [bareos-director](https://github.com/ssdit/docker-bareos-director)
+* [bareos-webui](https://github.com/ssdit/docker-bareos-webui)
+* [bareos-storage](https://github.com/ssdit/docker-bareos-storage)
 
 # About
 This package provides images for [Bareos](http://www.bareos.org) Diretor, WebUI and Storage Daemon. It's based on Ubuntu Trusty and the Bareos package repository. PostgreSQL is required as catalog backend. Every component runs in an single container and is linked together.
@@ -33,7 +35,7 @@ docker run --name bareos-director \
 -v <etc_path>:/etc/bareos \
 --link bareos-db:db \
 -p 9101:9101 \
--d ktwe/bareos-director:latest
+-d ssdit/bareos-director:latest
 ```
 
 **Some notes:** The bareos config file has been modified so any _.conf_ file inside `/etc/bareos/bareos-dir.d/` is included.
@@ -46,7 +48,7 @@ docker run --name bareos-webui \
 -v <etc_path>:/etc/bareos-webui \
 --link bareos-director:director \
 -p 8080:80 \
--d ktwe/bareos-webui:latest
+-d ssdit/bareos-webui:latest
 ```
 
 To enable login from the WebUI to the director, simply copy the default config files out of the container to your external director config volume:
@@ -69,7 +71,7 @@ docker run --name bareos-storage \
 -v <etc_path>:/etc/bareos \
 -v <storage_path>:/var/lib/bareos/storage \
 -p 9103:9103
--d ktwe/bareos-storage:latest
+-d ssdit/bareos-storage:latest
 ```
 
 Next allow the director to access the storage daemon. Get the password of the storage daemon:
