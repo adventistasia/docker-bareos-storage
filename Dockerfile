@@ -1,16 +1,9 @@
-FROM       ubuntu:xenial
+FROM       ssdit/bareos-base:16.2
 MAINTAINER Ryann Micua <rmicua@ssd.org>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y wget
-
-RUN bash -c 'echo "deb http://download.bareos.org/bareos/release/16.2/xUbuntu_16.04/ /" > /etc/apt/sources.list.d/bareos.list'
-RUN bash -c 'wget -q http://download.bareos.org/bareos/release/16.2/xUbuntu_16.04/Release.key -O- | apt-key add -'
-
 RUN apt-get update
-
-RUN bash -c "echo 'postfix postfix/main_mailer_type select No configuration' | debconf-set-selections"
 
 RUN apt-get install -y bareos-storage
 
