@@ -18,4 +18,5 @@ VOLUME /etc/bareos
 VOLUME /var/lib/bareos/storage
 
 ENTRYPOINT ["/run.sh"]
-CMD ["/usr/sbin/bareos-sd", "-c", "/etc/bareos/bareos-sd.conf", "-u", "bareos", "-f"]
+#CMD ["/usr/sbin/bareos-sd", "-c", "/etc/bareos/bareos-sd.conf", "-u", "bareos", "-f"]
+CMD ["/usr/sbin/bareos-sd", "-u", "bareos", "-f"]
