@@ -2,7 +2,7 @@
 
 if [ ! -f /etc/firstrun ]
 then
-        if [ ! -f /etc/bareos/bareos-sd.conf ]
+        if [ ! -f /etc/bareos/bareos-sd.d/storage/bareos-sd.conf ]
         then
                 tar xfvz /etc.tgz
         fi
